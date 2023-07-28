@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My Blog{% endblock %}
+
+{% block css_files %}
+   <link rel="stylesheet" href="{% static 'blog/style.css' %}"> 
+   <link rel="stylesheet" href="{% static 'blog/post.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section id="welcome">
+    <header>
+        <img src="{% static 'blog/images/photo.jpg' %}" alt="This is author Saif's image" srcset="">
+        <h2>Welcome To Saif Abdullah Mahi's blog</h2>
+    </header>
+        <p>My name is Saif and This is my first blog  </p>
+</section>
+
+<section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+        <ul>
+            
+            {% for posts in post %}
+            {% include 'blog/include/post.html'  %}    
+            {% endfor %}
+            
+        </ul>
+</section> 
+<section id="about">
+   <h2>Something About myself</h2>
+   <p>I am a web developer, I love programming. I love to help others and I love to explore new Tech!</p>
+   <p>Learning is fun to me thats why I always try to push myself to gain more knowledge and it's a previlage <br>
+   for me if I can help others with what I have learnt till now.</p>
+   <p>My goal is to grow up as a developer and I would be serious happy if I could help you to do so!</p> 
+
+</section>
+{% endblock %}
